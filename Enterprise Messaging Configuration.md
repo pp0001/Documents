@@ -2,7 +2,13 @@
 
 #### Setup
   * create enterprise messaging instance in [mta.yaml](https://github.com/pp0001/Documents/blob/master/EM%20service%20instance.png)
+  
+  	> ename: cannot have a duplicate name on the same global account
+	>
+	> namespace: case sensitive
   * add [dependency](https://github.com/pp0001/Documents/blob/master/EM%20dependency.png)
+  
+  	> If meet localcloudconfig issue after deploy to cloud or other strange issue, check dependency maybe it's dependency conflict issues.
   * create MessagingServiceFactory and ConnectionFactory, in this step should consider multi-tenant situation
   * create publish class 
   * prepare subscribe enterprise message method
