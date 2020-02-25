@@ -1,8 +1,8 @@
 # Enterprise Messaging Configuration
 
 #### Setup
-  * create enterprise messaging instance in mta.yaml
-  * add dependency
+  * create enterprise messaging instance in [mta.yaml](https://github.com/pp0001/Documents/blob/master/EM%20service%20instance.png)
+  * add [dependency](https://github.com/pp0001/Documents/blob/master/EM%20dependency.png)
   * create MessagingServiceFactory and ConnectionFactory, in this step should consider multi-tenant situation
   * create publish class 
   * prepare subscribe enterprise message method
