@@ -96,6 +96,19 @@ Please follow this ticket link: https://sapjira.wdf.sap.corp/browse/COCOMEF-417
 
 #### Issue List
   * Messages from other services cannot be consumed because the messages' content-type is 'application/octet-stream': You should add a message converter bean in you service
+  ```
+  @Configuration
+  public class MessageConverterConfiguration {
+      @Bean
+      public MappingJackson2HttpMessageConverter customizedJacksonMessageConverter() {
+	  MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+	  converter.setSupportedMediaTypes(
+	  Arrays.asList(MediaType.APPLICATION_JSON, new MediaType("application", "*+json"),
+	      MediaType.APPLICATION_OCTET_STREAM));
+	  return converter;
+	  }
+   }
+   ```
   
   * Webhook Subscription Issue, in PaaS tenant cannot subscribe webhook
     1. MTA: Create instance of backednd service broker named as “enterprise-messaging-client”
