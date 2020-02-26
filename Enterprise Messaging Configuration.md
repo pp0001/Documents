@@ -49,7 +49,7 @@
     * check enterprise message is ready, Readiness Check.
     * queue creation
     	* The URI for this put request needs to be specifically encoded and the slashes to be converted into unicode characters '%2FA'.
-        * accessType: EXCLUSIVE, NON_EXCLUSIVE (default: NON_EXCLUSIVE)
+        * accessType: EXCLUSIVE, NON_EXCLUSIVE (default: NON_EXCLUSIVE)	
 
 		> EXCLUSIVE: Only one consumer can receive messages at a specific point in time. The consumer holds an exclusive 			> connection to the queue at that specific moment. If this consumer disconnects from the queue, then the next consumer 			> can connect to the queue and start receiving messages. An exclusive queue always delivers messages in the order they 			> are received.
 		> 
