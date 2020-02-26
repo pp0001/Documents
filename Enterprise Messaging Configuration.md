@@ -89,9 +89,12 @@ Please follow this ticket link: https://sapjira.wdf.sap.corp/browse/COCOMEF-417
 [Enterprise messaging team ticket link](https://sapjira.wdf.sap.corp/projects/COCOMEF/issues/COCOMEF-496?filter=allopenissues)
 
 #### Issue List
-  * messages' content-type is 'application/octet-stream': You should add a message converter bean in you service
+  * Messages from other services cannot be consumed because the messages' content-type is 'application/octet-stream': You should add a message converter bean in you service
   
-  * Messages from other services cannot be consumed
-    * bind service broker to backend service
-    * registry service broker, redefined callback controller
-    * when create webhook add service broker's client id and client secret
+  * Webhook Subscription Issue, in PaaS tenant cannot subscribe webhook
+    1. MTA: Create instance of backednd service broker named as “enterprise-messaging-client”
+    2. bind this instance to srv module
+    3. MTA: Create new saas-registry instance, use xsappname from "enterprise-messaging-client", provide new callback urls to differentiate between "real" subscription to automated procedures and this workaround subscription
+    4. Implement new callbacks for new url
+    5. In Webhook subscription object in code level, read client id and secret from binding to "enterprise-messaging-client"
+    
