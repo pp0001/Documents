@@ -45,14 +45,12 @@
   * create MessagingServiceFactory and ConnectionFactory, in this step should consider multi-tenant situation
   * create publish class 
   * prepare subscribe enterprise message method
+  ![em process](https://github.com/pp0001/Documents/blob/master/EM%20process.png)
     * check enterprise message is ready, Readiness Check.
     * create queue.
-    
-    	* Endpoint: "/hub/rest/api/v1/management/messaging/queues/"
-	
-    	* accessType: EXCLUSIVE, NON_EXCLUSIVE (default: NON_EXCLUSIVE)
-	
-	    	> EXCLUSIVE: Only one consumer can receive messages at a specific point in time. The consumer holds an exclusive 			> connection to the queue at that specific moment. If this consumer disconnects from the queue, then the next consumer 			> can connect to the queue and start receiving messages. An exclusive queue always delivers messages in the order they 			> are received.
+	* Endpoint: "/hub/rest/api/v1/management/messaging/queues/"
+	* accessType: EXCLUSIVE, NON_EXCLUSIVE (default: NON_EXCLUSIVE)
+		> EXCLUSIVE: Only one consumer can receive messages at a specific point in time. The consumer holds an exclusive 			> connection to the queue at that specific moment. If this consumer disconnects from the queue, then the next consumer 			> can connect to the queue and start receiving messages. An exclusive queue always delivers messages in the order they 			> are received.
 		> 
 		> NON_EXCLUSIVE: Multiple consumers can connect to the queue at a specific point in time. The messages are delivered in 		> a round-robin fashion. This approach enables load balancing. However, if for some reason the connection fails, then 			> the messages are delivered to another customer. In this way, messages can be delivered out of order.
 		
