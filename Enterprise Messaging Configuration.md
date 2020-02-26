@@ -48,8 +48,10 @@
   * create publish class 
   * prepare subscribe enterprise message method
   ![em process](https://github.com/pp0001/Documents/blob/master/EM%20process.png)
-    * check enterprise message is ready, Readiness Check.
-    * queue creation
+    
+    * check enterprise message is ready, [Readiness Check](https://help.sap.com/doc/75c9efd00fc14183abc4c613490c53f4/Cloud/en-US/rest-management-messaging.html#_readinesscheckusingget)
+   
+   * [queue creation](https://help.sap.com/doc/75c9efd00fc14183abc4c613490c53f4/Cloud/en-US/rest-management-messaging.html#_putqueue)
     	* The URI for this put request needs to be specifically encoded and the slashes to be converted into unicode characters '%2FA'.
         * accessType: EXCLUSIVE, NON_EXCLUSIVE (default: NON_EXCLUSIVE)	
 
@@ -57,9 +59,9 @@
 		> 
 		> NON_EXCLUSIVE: Multiple consumers can connect to the queue at a specific point in time. The messages are delivered in 		> a round-robin fashion. This approach enables load balancing. However, if for some reason the connection fails, then 			> the messages are delivered to another customer. In this way, messages can be delivered out of order.
 	
-    * subscribe queue to topic.
+    * [subscribe queue to topic](https://help.sap.com/doc/75c9efd00fc14183abc4c613490c53f4/Cloud/en-US/rest-management-messaging.html#_putqueuesubscription_1).
         
-    APIs and models can get from Messaging management REST API.
+    APIs and models can get from Messaging management REST API in the Reference Link.
   
 #### Onboarding
 > If you want to enable customer to subscribe your service which contains enterprise messaging service instance, you should create a ticket to add provider tenant to enterprise messaging white list. 
