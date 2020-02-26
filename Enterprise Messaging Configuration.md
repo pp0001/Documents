@@ -76,6 +76,8 @@ Please follow this ticket link: https://sapjira.wdf.sap.corp/browse/COCOMEF-417
 
 [Wiki](https://wiki.wdf.sap.corp/wiki/display/MDM/SCP+Platform+-+Enterprise+messaging+service)
 
+[Guidelines for Eventing in the GRC Platform](https://wiki.wdf.sap.corp/wiki/display/GRCPLAT/Guidelines+for+Eventing+in+the+GRC+Platform)
+
 [Enterprise messaging Source Code Github](https://github.wdf.sap.corp/enterprise-messaging/xbem-sb/tree/master/sb-app)
 
 [Messaging management REST API](https://help.sap.com/doc/75c9efd00fc14183abc4c613490c53f4/Cloud/en-US/rest-management-messaging.html#_overview)
