@@ -6,6 +6,8 @@
   	> ename: cannot have a duplicate name on the same global account
 	>
 	> namespace: case sensitive
+	>
+	> Enterprise Messaging offers the plans dev, lite and default. We use the default plan for production use.
 	
   ```
   name: controls-em
