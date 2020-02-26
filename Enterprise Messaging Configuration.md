@@ -6,6 +6,39 @@
   	> ename: cannot have a duplicate name on the same global account
 	>
 	> namespace: case sensitive
+	
+  ```
+  name: controls-em
+  type: org.cloudfoundry.managed-service
+  active: true
+  parameters:
+    service: enterprise-messaging
+    service-plan: default
+    namespace: "sap/grc/ctrldev"
+    config:
+      instanceType: "reuse"
+      emname: controls-em-${space}
+      namespace: "sap/grc/ctrldev"
+      version: 1.1.0
+      options:
+        management: true
+        messagingrest: true
+        messaging: true
+      rules:
+        queueRules:
+          publishFilter:
+            - "${namespace}/*"
+          subscribeFilter:
+            - "${namespace}/*"
+        topicRules:
+          publishFilter:
+            - "${namespace}/*"
+            - "sap/grc/ap/*"
+            - "SAP/GRC/Ctrl/*"
+          subscribeFilter:
+            - "${namespace}/*"
+            - "sap/grc/ap/*"
+  ```
   * add [dependency](https://github.com/pp0001/Documents/blob/master/EM%20dependency.png)
   
   	> If meet localcloudconfig issue after deploy to cloud or other strange issue, check dependency maybe it's dependency conflict issues.
@@ -14,7 +47,15 @@
   * prepare subscribe enterprise message method
     * check enterprise message is ready, Readiness Check.
     * create queue.
-    * create webhook.
+    
+    	* Endpoint: "/hub/rest/api/v1/management/messaging/queues/"
+	
+    	* accessType: EXCLUSIVE, NON_EXCLUSIVE (default: NON_EXCLUSIVE)
+	
+	    	> EXCLUSIVE: Only one consumer can receive messages at a specific point in time. The consumer holds an exclusive 			> connection to the queue at that specific moment. If this consumer disconnects from the queue, then the next consumer 			> can connect to the queue and start receiving messages. An exclusive queue always delivers messages in the order they 			> are received.
+		> 
+		> NON_EXCLUSIVE: Multiple consumers can connect to the queue at a specific point in time. The messages are delivered in 		> a round-robin fashion. This approach enables load balancing. However, if for some reason the connection fails, then 			> the messages are delivered to another customer. In this way, messages can be delivered out of order.
+		
     * subscribe queue to topic.
     
 	APIs and models can get from Messaging management REST API.
